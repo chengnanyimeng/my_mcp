@@ -47,6 +47,8 @@ class McpSession:
             return "array"
         elif annotation == str:
             return "string"
+        elif annotation == inspect._empty:  # 没写注解
+            return "string"
         else:
             return "string"  # 默认 fallback 是 string
 
