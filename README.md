@@ -26,7 +26,7 @@ Make sure your `services/` package contains **all the business interfaces** you 
 
 ## 📂 Project Structure
 
-\`\`\`plaintext
+```plaintext
 my_mcp_server/
 ├── app.py                     # FastAPI app, defines /sse and /rpc endpoints
 ├── config/                     # Configuration files
@@ -38,25 +38,22 @@ my_mcp_server/
 ├── services/                   # Business services to expose as MCP tools
 │   ├── math_tool.py            # Example tool: math operations
 ├── README.md                   # Project documentation
-├── requirements.txt            # Python dependencies
-└── start.sh                    # (Optional) Quick start script
-\`\`\`
-
----
+└── requirements.txt            # Python dependencies
+```
 
 ## 📦 Quick Start
 
 ### 1. Install dependencies
 
-\`\`\`bash
+```bash
 pip install -r requirements.txt
-\`\`\`
+```
 
 ### 2. Start the server
 
-\`\`\`bash
+```bash
 uvicorn app:app --host 0.0.0.0 --port 8000 --reload
-\`\`\`
+```
 
 ### 3. Connect MCP Inspector
 
@@ -90,7 +87,7 @@ uvicorn app:app --host 0.0.0.0 --port 8000 --reload
 
 ## 📄 Example Service (`services/math_tool.py`)
 
-\`\`\`python
+```python
 class MathService:
     async def add(self, a: int, b: int) -> int:
         """Add two numbers."""
@@ -99,7 +96,7 @@ class MathService:
     async def subtract(self, a: int, b: int) -> int:
         """Subtract two numbers."""
         return a - b
-\`\`\`
+```
 
 Once placed under `services/`, they will be automatically scanned and registered as MCP tools!
 
