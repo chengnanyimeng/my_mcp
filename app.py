@@ -16,11 +16,11 @@ async def lifespan(app: FastAPI):
     app.state.session_manager = McpSessionManager()
     print("✅ MCP Session Manager created.")
 
-    yield  # ⭐ 这里暂停，进入正常服务状态
+    yield
 
     # ⭐ 应用关闭时
     print("❌ Shutting down MCP Session Manager...")
-    # 可以加资源清理，比如关闭连接池、清理session等等
+    # todo：可以加资源清理，比如关闭连接池、清理session
 app = FastAPI(lifespan=lifespan)
 
 def get_session_manager() -> McpSessionManager:
