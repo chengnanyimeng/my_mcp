@@ -29,8 +29,6 @@ def get_session_manager() -> McpSessionManager:
 @app.get("/sse")
 async def open_stream(session_manager: McpSessionManager = Depends(get_session_manager)):
     session = session_manager.create_session(name="my_mcp", message_path="/rpc", tools_path="services")
-    logger.info(f"session opened: {session_manager.get_session(session.client_id)}")
-    # await session.queue.put(Event(event="endpoint", data=f"{session.message_path}?client_id={session.client_id}"))
     await session.open("endpoint")
     return EventSourceResponse(session.reader())
 
