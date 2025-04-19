@@ -1,9 +1,8 @@
 import asyncio
 import json
-import os
 import uuid
 import inspect
-from typing import Any, List
+from typing import Any
 
 from config.logger_config import logger
 from models.event import Event

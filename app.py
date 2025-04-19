@@ -7,7 +7,6 @@ from starlette.responses import JSONResponse
 
 from config.logger_config import logger
 from core.session_manager import McpSessionManager
-from models.event import Event
 from models.mcp_request import McpRequest
 import uvicorn
 
