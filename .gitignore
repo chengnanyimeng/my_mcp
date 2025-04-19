@@ -1,0 +1,83 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+env/
+ENV/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+
+# PyInstaller
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.hypothesis/
+
+# IDEs
+# PyCharm
+.idea/
+# VSCode
+.vscode/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# MacOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# MyPy
+.mypy_cache/
+
+# Pyre
+.pyre/
+
+# Cython debug symbols
+cython_debug/
+
+# Local configuration
+*.local
+*.env
+*.dev
+*.bak
+
+# OSS Buckets / Storage (Optional, if you upload files)
+*.ossignore
+
+# Misc
+*.sqlite3
+*.db
+
+# Inspector node_modules (if frontend involved)
+node_modules/
