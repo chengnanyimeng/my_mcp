@@ -70,7 +70,7 @@ class McpSession:
 
 
     @staticmethod
-    def response(result: Any, id: int):
+    def _warp_response(result: Any, id: int):
         """封装响应结构"""
         message = {
             "jsonrpc": "2.0",
@@ -82,13 +82,13 @@ class McpSession:
 
     async def request_dispatcher(self, request: McpRequest) -> Any:
         if request.method == "initialize":
-            await self.queue.put(Event(event="message", data=self.response(self.info, request.id)))
+            await self.queue.put(Event(event="message", data=self._warp_response(self.info, request.id)))
         elif request.method == "tools/list":
-            await self.queue.put(Event(event="message", data=self.response({"tools": self.list_tool()}, request.id)))
+            await self.queue.put(Event(event="message", data=self._warp_response({"tools": self.list_tool()}, request.id)))
         elif request.method == "tools/call":
             result = await self.call_tool(request.params.get("name"), request.params.get("arguments"))
             await self.queue.put(
-                Event(event="message", data=self.response({"content": result, "isError": False}, request.id)))
+                Event(event="message", data=self._warp_response({"content": result, "isError": False}, request.id)))
 
     def list_tool(self):
         """列出通过services反射出来的所有工具（使用Tool强类型，流式优雅版）"""
@@ -119,6 +119,7 @@ class McpSession:
             if method.__name__ == name:
                 return await method(**arguments)
         raise ValueError(f"Tool '{name}' not found")
+
 
 """Local Test"""
 if __name__ == '__main__':

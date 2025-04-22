@@ -55,5 +55,5 @@ if __name__ == "__main__":
         "app:app",  # 模块名:app对象名
         host="0.0.0.0",  # 开到所有IP，局域网/外网都能连
         port=8000,  # MCP Server跑的端口
-        reload=True  # 自动重启（开发模式建议开，生产建议关）
+        reload=False  # 自动重启（开发模式建议开，生产建议关）
     )
